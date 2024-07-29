@@ -13,23 +13,26 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Section;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Actions\DeleteAction;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\CategoryResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\CategoryResource\RelationManagers;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ViewAction;
 
 class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
-
+    //Enables global search and sets the condition for it to be searched, in this case, results will show if you write a name.
+    protected static ?string $recordTitleAttribute = 'name';
+    protected static ?int $navigationSort = 2;
     public static function form(Form $form): Form
     {
         return $form
@@ -37,18 +40,18 @@ class CategoryResource extends Resource
                 Section::make([
                     Grid::make()
                     ->schema([
-                        Forms\Components\TextInput::make('name')
+                    TextInput::make('name')
                     ->required()
                     ->maxLength(255)
                     ->live(onBlur:true)
                     ->afterStateUpdated(fn (string $operation, $state, Set $set) => $operation === 'create'? $set('slug', Str::slug($state)) : null),
-                Forms\Components\TextInput::make('slug')
+
+                TextInput::make('slug')
                     ->required()
                     ->disabled()
                     ->dehydrated()
                     ->maxLength(255)
                     ->unique(Category::class, 'slug', ignoreRecord: true),
-
                     ]),
                     FileUpload::make('image')
                     ->image()

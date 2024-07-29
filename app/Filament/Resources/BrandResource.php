@@ -29,6 +29,10 @@ class BrandResource extends Resource
     protected static ?string $model = Brand::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-device-phone-mobile';
+//Enables global search and sets the condition for it to be searched, in this case, results will show if you write a name.
+protected static ?string $recordTitleAttribute = 'name';
+ //This sorts the icons in the navbar
+protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {

@@ -13,6 +13,7 @@ use Filament\Resources\Pages\CreateRecord;
 use App\Filament\Resources\UserResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\UserResource\RelationManagers;
+use App\Filament\Resources\UserResource\RelationManagers\OrdersRelationManager;
 use Filament\Resources\Pages\Page;
 use Filament\Tables\Columns\TextColumn;
 
@@ -22,6 +23,10 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
+
+    protected static ?string $recordTitleAttribute = 'name';
+ //This sorts the icons in the navbar
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
@@ -85,10 +90,14 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            OrdersRelationManager::class
         ];
     }
-
+//This is quite tricky to understand. Basically you can find the name by searching other attributes, for example, email. But you need to have the $recordTitleAttribute variable up there set as the name.
+public static function getGloballySearchableAttributes(): array
+{
+    return ['name', 'email'];
+}
     public static function getPages(): array
     {
         return [
