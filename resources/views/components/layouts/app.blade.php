@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{{-- This is the general layout, everything else is inserted on here. Ex.: navbar and footer --}}
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
