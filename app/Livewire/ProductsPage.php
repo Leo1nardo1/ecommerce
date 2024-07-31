@@ -50,6 +50,10 @@ class ProductsPage extends Component
             $productQuery->where('on_sale', 1);
         }
 
+        if($this->price_range){
+            $productQuery->whereBetween('price', [0, $this->price_range]);
+        }
+
         return view('livewire.products-page', [
             //In livewire when you're using paginate you need to use a trait inside the class
             'products' => $productQuery->paginate(6),
