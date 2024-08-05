@@ -7,6 +7,8 @@
 
         <title>{{ $title ?? 'Magazine Lindinha' }}</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        {{--Ensures stuff like wire:loading and wire:target works--}}
+        @livewireStyles
     </head>
     <body class="bg-slate-200 dark:bg-slate-700">
         @livewire('partials.navbar')
@@ -14,7 +16,11 @@
             {{ $slot }}
         </main>
         
+        
         @livewireScripts
         @livewire('partials.footer')
+        {{--Sweet alert (alert shown at the bottom of the page once you add a new item to the cart)--}}
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <x-livewire-alert::scripts />
     </body>
 </html>
