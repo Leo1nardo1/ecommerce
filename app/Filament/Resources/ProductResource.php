@@ -41,14 +41,18 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
+                //Group allows you to divide the form and make sections.
                 Group::make()->schema([
                     Section::make('Product Information')->schema([
                         TextInput::make('name')
                         ->required()
                         ->maxLength(255)
+                        //Allows you to live update the record after you click out of the input field
                         ->live(onBlur:true)
+                        // Defines a callback function to execute when the field's state is updated. The variables are from filament.
                         ->afterStateUpdated(function (string $operation, $state, Set $set){
                             if($operation !== 'create'){
+                                //if this happens, the function return immediately and no further action is taken.
                                 return;
                             }
                             $set('slug', Str::slug($state));

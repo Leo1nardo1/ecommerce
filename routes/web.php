@@ -20,6 +20,7 @@ Route::get('/', HomePage::class);
 Route::get('/categories', CategoriesPage::class);
 Route::get('/cart', CartPage::class);
 
+// Slug is for the info about the procut at the url
 Route::get('/products', ProductsPage::class);
 Route::get('products/{slug}', ProductDetailPage::class);
 
@@ -27,7 +28,9 @@ Route::get('products/{slug}', ProductDetailPage::class);
 
 // Group of routes related to the user when he's not logged in
 Route::middleware('guest')->group(function (){
+  //Login receives a name to make redirection easier. It will redirect you if you access any route in the auth middleware
   Route::get('/login', LoginPage::class)->name('login');
+  //This receives a name because like reset route, it facilitates the work with mailtrap
   Route::get('/forgot', ForgotPasswordPage::class)->name('password.request');
   Route::get('/register', RegisterPage::class);
   //this need a name and token so mailtrap is able to redirect the user to reset password page
@@ -35,7 +38,7 @@ Route::middleware('guest')->group(function (){
 });
 
 
-// Group of routes related to the user when he's logged in
+// Group of routes related to the user when he's logged in. 'auth' does the authentication automatically through laravel.
 Route::middleware('auth')->group(function (){
   Route::get('/logout', function(){
     auth()->logout();
@@ -44,6 +47,6 @@ Route::middleware('auth')->group(function (){
   Route::get('/checkout', CheckoutPage::class);
   Route::get('/my-orders', MyOrdersPage::class);
   Route::get('/my-orders/{order}', OrderDetailPage::class);
-  Route::get('/success', SuccessPage::class);
-  Route::get('/cancel', CancelPage::class);
+  Route::get('/success', SuccessPage::class)->name('success');
+  Route::get('/cancel', CancelPage::class)->name('cancel');
 });

@@ -1,4 +1,6 @@
 <div>
+<!--wire:navigate are used to preload pages when you click them and also show a loading bar below url-->
+<!--wire:key is used by livewire to identify (provide unique ids) the items in the lists individually during the foreach-->
 {{-- Hero Section Start --}} 
 <div class="w-full h-screen bg-gradient-to-r from-emerald-500 to-lime-200 py-10 px-4 sm:px-6 lg:px-8 mx-auto">
   <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">

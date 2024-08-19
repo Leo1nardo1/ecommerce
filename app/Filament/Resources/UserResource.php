@@ -39,6 +39,7 @@ class UserResource extends Resource
                 ->label('Email Address')
                 ->email()
                 ->maxlength(255)
+                //When updating, ignoreRecord: true, allows the user to keep the current e-mail.
                 ->unique(ignoreRecord: true)
                 ->required(),
                 
@@ -48,9 +49,9 @@ class UserResource extends Resource
 
                 Forms\Components\TextInput::make('password')
                 ->password()
-                //Only includes the password if there's already a password (If it isn't the first time a user is being created and given a password)
+                // When updating this user i created, if i don't write anything in the password field, the password won't be updated and it will be seen by the server as if it doesn't exist in the form submission. However if i write something, it will replace the previous password.
                 ->dehydrated(fn (?string $state): bool => filled($state))
-                //Makes it required only when there's no previous record added (When you're creating a user for the first time)
+                //Makes it required only when there's no previous record added. Meaning when you update, it won't be required, letting dehydrated logic handle the whole thing.
                 ->required(fn(Page $livewire): bool => $livewire instanceof CreateRecord),
             ]);
     }
@@ -59,6 +60,8 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
+                //Searchable() allows the items to be searched in the table
+                //sortable() allows you to sort the items based on datetime()
                 Tables\Columns\TextColumn::make('name')->searchable(),
             Tables\Columns\TextColumn::make('email')->searchable(),
             Tables\Columns\TextColumn::make('email_verified_at')->dateTime()->sortable(),
