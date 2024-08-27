@@ -24,9 +24,10 @@ class ProductDetailPage extends Component
         //dd($product_id); is used to check if the function is working and returning correct values.
         $total_count = CartManagement::addItemToCartWithQty($product_id, $this->quantity);
         
-        
+        //Updates cart count  to navbar
         $this->dispatch('update-cart-count', total_count: $total_count)->to(Navbar::class);
 
+        //sweetalert2 - livewire alert configuration when an item is successfully added to the cart
         $this->alert('success', 'Product added to the cart!', [
             'position' => 'bottom-end',
             'timer' => 3000,
@@ -35,6 +36,7 @@ class ProductDetailPage extends Component
            ]);
     }
 
+    //Initializes the $slug
     public function mount($slug){
         $this->slug = $slug;
     }
@@ -51,6 +53,7 @@ class ProductDetailPage extends Component
     
     public function render()
     {
+        //fetches the product slug from the database (the slug is inserted in filament admin panel upon creating a product)
         return view('livewire.product-detail-page', [
             'product' => Product::where('slug', $this->slug)->firstOrFail(),
         ]);
