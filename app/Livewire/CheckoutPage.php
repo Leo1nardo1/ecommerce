@@ -10,7 +10,6 @@ use App\Mail\OrderPlaced;
 use Stripe\Checkout\Session;
 use Livewire\Attributes\Title;
 use App\Helpers\CartManagement;
-use function PHPSTORM_META\map;
 use Illuminate\Support\Facades\Mail;
 
 #[Title('Checkout - Magali')]
@@ -60,7 +59,7 @@ class CheckoutPage extends Component
                 'unit_amount' => $item['unit_amount'] * 100,
                 'product_data' =>[
                     'name' => $item['name'],
-                ],
+                ]
                 
             ],
             'quantity' => $item['quantity'],

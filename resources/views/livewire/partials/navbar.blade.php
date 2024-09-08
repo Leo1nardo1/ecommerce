@@ -18,26 +18,25 @@
           </div>
         </div>
   
-        <div id="navbar-collapse-with-animation" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block">
-          <div class="overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500">
-            <div class="flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:ps-7 md:divide-y-0 md:divide-solid dark:divide-gray-700">
-              {{-- request is always based on the url request after the click, in case i have clicked the home page, then the text will be green, else it will be grey, the same is done to the rest.  --}}
-              <a class="font-medium {{ request()->is('/') ?'text-green-600 hover:text-green-400' : 'text-gray-500' }} py-3 md:py-6 dark:text-green-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 hover:text-gray-400" href="/" wire:navigate.hover aria-current="page" >Home</a>
-  
-              <a class="font-medium {{ request()->is('categories') ?'text-green-600 hover:text-green-400' : 'text-gray-500' }} hover:text-gray-400 py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/categories" wire:navigate.hover>
-                Categories
-              </a>
-  
-              <a class="font-medium {{ request()->is('products') ?'text-green-600 hover:text-green-400' : 'text-gray-500' }} hover:text-gray-400 py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/products" wire:navigate.hover>
-                Products
-              </a>
-  
-              <a class="font-medium flex items-center {{ request()->is('cart') ?'text-green-600 hover:text-green-400' : 'text-gray-500' }} hover:text-gray-400 py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/cart" wire:navigate.hover>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 w-5 h-5 mr-1">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                </svg>
-                <span class="mr-1">Cart</span> <span class="py-0.5 px-1.5 rounded-full text-xs font-medium bg-blue-50 border border-blue-200 text-blue-600">{{ $total_count }}</span>
-              </a>
+      <div id="navbar-collapse-with-animation" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block">
+  <div class="overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500">
+    <div class="flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:ps-7 md:divide-y-0 md:divide-solid dark:divide-gray-700">
+      <!-- Home Link -->
+      <a class="font-medium py-3 md:py-6 hover:text-green-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 {{ request()->is('/') ? 'text-green-600 dark:text-green-500' : 'text-gray-500 dark:text-white hover:text-gray-400 dark:hover:text-gray-300' }}" href="/" wire:navigate.hover aria-current="page">Home</a>
+
+      <!-- Categories Link -->
+      <a class="font-medium py-3 md:py-6 hover:text-green-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 {{ request()->is('categories') ? 'text-green-600 dark:text-green-500' : 'text-gray-500 dark:text-white hover:text-gray-400 dark:hover:text-gray-300' }}" href="/categories" wire:navigate.hover>Categories</a>
+
+      <!-- Products Link -->
+      <a class="font-medium py-3 md:py-6 hover:text-green-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 {{ request()->is('products') ? 'text-green-600 dark:text-green-500' : 'text-gray-500 dark:text-white hover:text-gray-400 dark:hover:text-gray-300' }}" href="/products" wire:navigate.hover>Products</a>
+
+      <!-- Cart Link -->
+      <a class="font-medium flex items-center py-3 md:py-6 hover:text-green-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 {{ request()->is('cart') ? 'text-green-600 dark:text-green-500' : 'text-gray-500 dark:text-white hover:text-gray-400 dark:hover:text-gray-300' }}" href="/cart" wire:navigate.hover>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 w-5 h-5 mr-1">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+        </svg>
+        <span class="mr-1">Cart</span> <span class="py-0.5 px-1.5 rounded-full text-xs font-medium bg-blue-50 border border-blue-200 text-blue-600">{{ $total_count }}</span>
+      </a>
   
               
               @guest
@@ -62,7 +61,7 @@
               </button>
   
               <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 md:w-48 hidden z-10 bg-white md:shadow-md rounded-lg p-2 dark:bg-gray-800 md:dark:border dark:border-gray-700 dark:divide-gray-700 before:absolute top-full md:border before:-top-5 before:start-0 before:w-full before:h-5">
-                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" wire:navigate href="/my-orders">
                   My Orders
                 </a>
   
