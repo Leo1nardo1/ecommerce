@@ -8,12 +8,12 @@
             <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
               <thead>
                 <tr>
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Order</th>
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Date</th>
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Order Status</th>
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Payment Status</th>
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Order Amount</th>
-                  <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Action</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 dark:text-black uppercase">Order</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 dark:text-black uppercase">Date</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 dark:text-black uppercase">Order Status</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 dark:text-black uppercase">Payment Status</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 dark:text-black uppercase">Order Amount</th>
+                  <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 dark:text-black uppercase">Action</th>
                 </tr>
               </thead>
 

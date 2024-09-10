@@ -35,15 +35,15 @@
                 <div class="lg:pl-20">
                   {{--ul list disc enables tailwind to show bulletpoints. ml is margin left set to four--}}
                   <div class="mb-8 [&>ul]:list-disc [&>ul]:ml-4">
-                    <h2 class="max-w-xl mb-6 text-2xl font-bold dark:text-gray-400 md:text-4xl">
+                    <h2 class="max-w-xl mb-6 text-2xl font-bold dark:text-white md:text-4xl">
                       {{ $product->name }}</h2>
                     <p class="inline-block mb-6 text-4xl font-bold text-gray-700 dark:text-gray-400 ">
                       <span>{{ Number::currency($product->price, 'USD') }}</span>
                       {{-- <span class="text-base font-normal text-gray-500 line-through dark:text-gray-400">$1800.99</span>
                     </p> --}}
-                    <p class="max-w-md text-gray-700 dark:text-gray-400">
+                    <p class="max-w-md text-gray-700 dark:text-white">
                       {{--By using !! str markdown, you make the description be adapted to html rules, for example **test** for bold text--}}
-                      {!! Str::markdown($product->description) !!}
+                      {{ ($product->description) }}
                     </p>
                   </div>
                   <div class="w-32 mb-8 ">

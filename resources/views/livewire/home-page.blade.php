@@ -160,7 +160,7 @@
             </div>
           </div>
         </div>
-        <p class="mb-12 text-base text-center text-gray-500">
+        <p class="mb-12 text-base text-center text-gray-500 dark:text-white">
           Discover the most sought after and trusted brands on the market. Explore our selection and find products that meet your needs and expectations.
         </p>
       </div>
@@ -202,7 +202,7 @@
             </div>
           </div>
         </div>
-        <p class="mb-12 text-base text-center text-gray-500">
+        <p class="mb-12 text-base text-center text-gray-500 dark:text-black">
           Discover our wide range of technology products designed to meet all your tech needs.
         </p>
       </div>
@@ -222,7 +222,7 @@
                   </h3>
                 </div>
               </div>
-              <div class="ps-3">
+              <div class="ps-3 dark:text-white dark:group-hover:text-gray-400">
                 <svg class="flex-shrink-0 w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="m9 18 6-6-6-6" />
                 </svg>
@@ -256,7 +256,7 @@
               </div>
             </div>
           </div>
-          <p class="mb-12 text-base text-center text-gray-500">
+          <p class="mb-12 text-base text-center text-gray-500 dark:text-white">
             See what our costumers say about our services.
           </p>
         </div>

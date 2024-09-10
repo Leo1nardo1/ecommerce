@@ -1,7 +1,7 @@
 <div>
     <div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
         <div class="container mx-auto px-4">
-          <h1 class="text-2xl font-semibold mb-4">Shopping Cart</h1>
+          <h1 class="text-2xl font-semibold mb-4 dark:text-white">Shopping Cart</h1>
           <div class="flex flex-col md:flex-row gap-4">
             <div class="md:w-3/4">
               <div class="bg-white overflow-x-auto rounded-lg shadow-md p-6 mb-4">
